@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html>
+<head>
+<title>Hang-clean Hangman</title>
+<link rel="stylesheet" type="text/css" href="hangman.css">
+</head>
+
+<body>
+
+<h1>Hangman for MEN</h1>
+
+<p id="answer"></p>
+<p id="counter"></p>
+<p id="stat"></p>
+<button id="reset">Reset</button>
+
+<script type="text/javascript">
+
+	var wordList = ["protein", "beer", "videogames", "females", "weightlifting", "motorcycles", "fishing"];
+	var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+
+	document.getElementById("button").reset();
+
+	var w;
+	var count = 0;
+	var answerOptions = [];
+
+	for (var i = 0; i < randomWord.length; i++) {
+		answerOptions[i] = "_";
+	}
+
+		w = answerOptions.join(" ")
+			document.getElementById("answer").innerHTML = w;
+		
+		function Letter() {
+		var letter = document.getElementById("letter").value;
+
+		if (letter.length > 0) {
+			for (var i = 0; i < randomWord.length; i++) {
+				if (randomWord[i] === letter) {
+					answerOptions [i] = letter;
+				}
+				}
+			}
+	
+	count++;
+	document.getElementById("counter").innerHTML = "Number of guesses: " + count;
+	
+		
+	
+
+	if (count>10) {
+		document.getElementById("stat").innerHTML = "You need to get the hang, man";}
+	}
+
+	document.onkeyup = function(event) {
+		var letter = event.key
+		for (var i = 0; i < randomWord.length; i++) {
+				if (randomWord[i] === letter) {
+					answerOptions [i] = letter;
+				}
+				};
+				console.log(answerOptions);
+				document.getElementById("answer").innerHTML = answerOptions.join(" ");
+	}
+
+	
+	</script>
+	</body>
+	</html>
+
+
+
+
